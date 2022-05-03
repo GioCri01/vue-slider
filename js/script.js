@@ -47,7 +47,7 @@ const app = new Vue({
                 this.counterSlide = 0;
                 
             }
-            console.log(this.counterSlide);
+            
         },
 
         prevSlide(){
@@ -61,15 +61,28 @@ const app = new Vue({
         slideClick(index){
             this.counterSlide = index;
             
+        },
+        houverIn(){
+            clearInterval(this.autoPlay);
+            
+        },
+        houverOut(){
+            this.autoPlay = setInterval(() => {
+                this.nextSlide()
+            }, 1000); 
         }
         
     },
 
     mounted(){
-        setInterval(() => {
+        this.autoPlay = setInterval(() => {
             this.nextSlide()
-        }, 3000);
-    }
+        }, 1000);
+
+       
+    },
+
+
 
 })
 
