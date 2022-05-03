@@ -36,7 +36,7 @@ const app = new Vue({
             }
         ],
         counterSlide : 0,
-        select : false,
+        
         
     },    
 
@@ -56,8 +56,19 @@ const app = new Vue({
                 this.counterSlide = this.slides.length -1
             }
 
+        },
+
+        slideClick(index){
+            this.counterSlide = index;
+            
         }
         
+    },
+
+    mounted(){
+        setInterval(() => {
+            this.nextSlide()
+        }, 3000);
     }
 
 })
